@@ -2,23 +2,15 @@
 .venv/
 venv/
 __pycache__/
-*.py[cod]
-
-# Django
-db.sqlite3
-staticfiles/
-media/
-
-# Environment
-.env
+*.pyc
 
 # Node
 node_modules/
+npm-debug.log
 
-# IDE
-.vscode/
-.idea/
+# Build
+dist/
+build/
 
-# OS
-.DS_Store
-Thumbs.db
+# Environment
+.env
