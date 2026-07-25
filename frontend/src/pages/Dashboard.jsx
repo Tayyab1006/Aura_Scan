@@ -30,7 +30,7 @@ const Dashboard = () => {
   const [wsReady, setWsReady] = useState(false);
   const [lastError, setLastError] = useState('');
   const ws = useRef(null);
-  const API_BASE = 'http://localhost:8001';
+  const API_BASE = 'https://aura-scan-vnfn.onrender.com';
 
   useEffect(() => {
     ws.current = new WebSocket(`${API_BASE.replace('http', 'ws')}/ws`);
