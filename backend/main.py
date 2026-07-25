@@ -32,10 +32,10 @@ app = FastAPI(title="AURA Global API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "https://aura-scan-seven.vercel.app",
-    ],
+    "https://aura-scan-seven.vercel.app",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -64,7 +64,7 @@ async def get_vitals():
     return state
 
 # Frame queue for the processing thread
-frame_queue = Queue(maxsize=10)
+frame_queue = Queue(maxsize=30)
 frame_timestamps = deque(maxlen=120)
 
 # Initialize AI Core

@@ -7,7 +7,7 @@ class FaceAnalyzer:
     The Eye of the Abyss: Handles facial detection and ROI extraction.
     Uses MediaPipe Face Mesh when available, otherwise falls back to OpenCV Haar cascades.
     """
-    def __init__(self, static_image_mode=False, max_num_faces=1, refine_landmarks=True, min_detection_confidence=0.5, min_tracking_confidence=0.5):
+    def __init__(self, static_image_mode=False, max_num_faces=1, refine_landmarks=True, min_detection_confidence=0.3, min_tracking_confidence=0.3,):
         self.face_mesh = None
         self.face_cascade = None
         self.use_mediapipe = False

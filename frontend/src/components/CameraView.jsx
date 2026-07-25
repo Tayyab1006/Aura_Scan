@@ -11,7 +11,12 @@ const CameraView = ({ onFrame, isActive }) => {
     async function setupCamera() {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
-          video: { width: 640, height: 480, frameRate: { ideal: 120, max: 120 } }
+         video: {
+    width: { ideal: 320 },
+    height: { ideal: 240 },
+    facingMode: "user",
+    frameRate: { ideal: 30, max: 30 }
+}
         });
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
@@ -53,11 +58,11 @@ const CameraView = ({ onFrame, isActive }) => {
         const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
         onFrame(dataUrl);
       }
-      animationFrameId = requestAnimationFrame(capture);
+      animationFrameId = setTimeout(capture, 33);
     };
 
     capture();
-    return () => cancelAnimationFrame(animationFrameId);
+    return () => clearTimeout(animationFrameId);
   }, [isActive, onFrame]);
 
   return (
